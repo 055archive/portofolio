@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reality Studio — Modern Swiss Webcraft & Business Websites</title>
+    <meta name="description" content="Studio pembuatan website profesional siap pakai untuk bisnis lokal, kafe, klinik estetika, fotografi wedding, sablon apparel, dan arsitektur. Domain resmi, cloud hosting, dan pemesanan langsung ke WhatsApp.">
+
+    <!-- Google Fonts: Space Grotesk (Swiss Graphic Display), Plus Jakarta Sans (Clean Editorial Body), & JetBrains Mono (Technical Monospace) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        swiss: {
+                            base: '#FAFAF8',
+                            surface: '#FFFFFF',
+                            linen: '#F4F3EE',
+                            border: '#E5E2DC',
+                            borderHover: '#B8B4AA',
+                            ink: '#111215',
+                            charcoal: '#1E2025',
+                            muted: '#5A5E67',
+                            dim: '#8C9099',
+                            cobalt: '#1D4ED8',
+                            emerald: '#059669',
+                            amber: '#D97706',
+                            purple: '#7C3AED'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #FAFAF8;
+            color: #111215;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Paper Elevation Shadows */
+        .paper-shadow {
+            box-shadow: 0 4px 20px -2px rgba(17, 18, 21, 0.04), 0 2px 6px -1px rgba(17, 18, 21, 0.02);
+        }
+        .paper-shadow-hover {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .paper-shadow-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -12px rgba(17, 18, 21, 0.08), 0 4px 12px -2px rgba(17, 18, 21, 0.04);
+            border-color: #B8B4AA;
+        }
+
+        /* Subtle Swiss Architectural Grid */
+        .swiss-grid-pattern {
+            background-image: linear-gradient(to right, rgba(17, 18, 21, 0.035) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(17, 18, 21, 0.035) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Custom Range Slider */
+        input[type="range"].swiss-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            background: #E5E2DC;
+            border-radius: 9999px;
+            outline: none;
+        }
+        input[type="range"].swiss-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #111215;
+            cursor: pointer;
+            border: 3px solid #FAFAF8;
+            box-shadow: 0 2px 8px rgba(17, 18, 21, 0.25);
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+        input[type="range"].swiss-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background: #1D4ED8;
+        }
+
+        /* Hide scrollbars */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="selection:bg-swiss-ink selection:text-white">
+
+    <!-- TOP TELEMETRY STATUS BAR -->
+    <div class="border-b border-swiss-border bg-white text-swiss-muted py-2 px-4 text-xs font-mono">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+                <span class="text-[11px] text-swiss-ink font-medium">Status Studio: <span class="text-emerald-700 font-semibold">Tersedia untuk Proyek Baru</span></span>
+            </div>
+            <div class="hidden sm:flex items-center gap-4 text-[11px]">
+                <span class="text-swiss-muted">Domain .COM Resmi</span>
+                <span class="text-swiss-border">|</span>
+                <span class="text-swiss-muted">Cloud Hosting SSD</span>
+                <span class="text-swiss-border">|</span>
+                <span class="text-emerald-700 font-medium">Bebas Potongan Komisi 0%</span>
+            </div>
+            <a href="#paket" class="text-[11px] text-swiss-ink hover:text-swiss-cobalt font-semibold transition-colors flex items-center gap-1">
+                <span>Pricelist All-in-One</span>
+                <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-40 bg-swiss-base/90 backdrop-blur-md border-b border-swiss-border transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-swiss-ink text-white flex items-center justify-center font-display font-bold text-lg shadow-sm group-hover:bg-swiss-cobalt transition-colors">
+                    R<span class="text-emerald-400">.</span>
+                </div>
+                <div>
+                    <span class="font-display font-bold text-lg tracking-tight text-swiss-ink block leading-none">Reality Studio</span>
+                    <span class="font-mono text-[10px] tracking-widest text-swiss-muted uppercase block mt-1">Independent Webcraft</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-wider text-swiss-muted">
+                <a href="#portfolio" class="hover:text-swiss-ink transition-colors font-medium">Katalog Demo</a>
+                <a href="#kalkulator" class="hover:text-swiss-ink transition-colors font-medium">Kalkulator ROI</a>
+                <a href="#paket" class="hover:text-swiss-ink transition-colors font-medium">Paket & Rate</a>
+                <a href="#alur" class="hover:text-swiss-ink transition-colors font-medium">Alur Kerja</a>
+                <a href="#faq" class="hover:text-swiss-ink transition-colors font-medium">FAQ</a>
+            </nav>
+
+            <!-- CTA Actions -->
+            <div class="hidden sm:flex items-center gap-3">
+                <button onclick="contactViaWhatsApp('Konsultasi Studio')" class="px-5 py-2.5 bg-swiss-ink hover:bg-swiss-cobalt text-white rounded-full font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-200 shadow-sm flex items-center gap-2">
+                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                    <span>Konsultasi WA</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden p-2 rounded-xl text-swiss-ink hover:bg-white border border-swiss-border" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-swiss-border px-6 py-5 space-y-3 font-mono text-xs uppercase tracking-wider">
+            <a href="#portfolio" class="block py-2 text-swiss-muted hover:text-swiss-ink" onclick="toggleMobileMenu()">Katalog Demo Website</a>
+            <a href="#kalkulator" class="block py-2 text-swiss-muted hover:text-swiss-ink" onclick="toggleMobileMenu()">Kalkulator Penghematan</a>
+            <a href="#paket" class="block py-2 text-swiss-muted hover:text-swiss-ink" onclick="toggleMobileMenu()">Pilihan Paket All-in-One</a>
+            <a href="#alur" class="block py-2 text-swiss-muted hover:text-swiss-ink" onclick="toggleMobileMenu()">Alur Pengerjaan 4 Hari</a>
+            <a href="#faq" class="block py-2 text-swiss-muted hover:text-swiss-ink" onclick="toggleMobileMenu()">Tanya Jawab (FAQ)</a>
+            <button onclick="contactViaWhatsApp('Konsultasi Cepat Mobile'); toggleMobileMenu();" class="w-full mt-3 py-3 bg-swiss-ink text-white rounded-xl font-bold flex items-center justify-center gap-2">
+                <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+                <span>Hubungi via WhatsApp</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION: MODERN SWISS EDITORIAL -->
+    <section class="relative pt-14 pb-20 lg:pt-24 lg:pb-32 overflow-hidden swiss-grid-pattern border-b border-swiss-border bg-gradient-to-b from-white via-swiss-base to-swiss-base">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto space-y-6">
+                
+                <!-- Pill Tag -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-swiss-border text-swiss-muted text-xs font-mono paper-shadow">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span class="font-medium text-swiss-ink">STUDIO WEBCRAFT PROFESIONAL · SIAP PAKAI & LIVE ONLINE</span>
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-swiss-ink tracking-tight leading-[1.12]">
+                    Website Bisnis Siap Pakai yang Menghasilkan Pesanan, <span class="text-swiss-muted font-normal underline decoration-swiss-border underline-offset-8">Tanpa Komisi Aplikasi</span>.
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-swiss-muted text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-light">
+                    Solusi website komprehensif untuk kafe, klinik estetika, studio fotografi, apparel sablon, hingga kontraktor arsitektur. Sudah termasuk <strong>Domain .com resmi, Cloud Hosting kilat</strong>, dan sistem order otomatis ke WhatsApp.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-4">
+                    <a href="#portfolio" class="w-full sm:w-auto px-8 py-3.5 bg-swiss-ink hover:bg-swiss-cobalt text-white font-display font-bold text-xs uppercase tracking-wider rounded-full transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                        <span>Jelajahi 6 Demo Langsung</span>
+                    </a>
+                    <button onclick="contactViaWhatsApp('Konsultasi Kebutuhan Website')" class="w-full sm:w-auto px-8 py-3.5 bg-white hover:bg-swiss-linen border border-swiss-border text-swiss-ink font-mono text-xs font-semibold tracking-wider uppercase rounded-full transition-all flex items-center justify-center gap-2 paper-shadow">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+                        <span>Konsultasi Proyek via WA</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SWISS STATS CARDS GRID -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-5 max-w-5xl mx-auto">
+                <div class="bg-white p-6 rounded-2xl border border-swiss-border paper-shadow">
+                    <span class="font-mono text-[10px] text-swiss-dim uppercase tracking-wider block mb-1">Pengerjaan Cepat</span>
+                    <div class="font-display text-2xl font-bold text-swiss-ink">3 – 5 Hari</div>
+                    <p class="text-xs text-swiss-muted mt-1">Tuntas hingga tayang online</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-swiss-border paper-shadow">
+                    <span class="font-mono text-[10px] text-swiss-dim uppercase tracking-wider block mb-1">Bebas Potongan</span>
+                    <div class="font-display text-2xl font-bold text-emerald-600">0% Komisi</div>
+                    <p class="text-xs text-swiss-muted mt-1">Margin 100% milik usaha Anda</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-swiss-border paper-shadow">
+                    <span class="font-mono text-[10px] text-swiss-dim uppercase tracking-wider block mb-1">Hak Milik Aset</span>
+                    <div class="font-display text-2xl font-bold text-swiss-ink">100% Penuh</div>
+                    <p class="text-xs text-swiss-muted mt-1">Domain & akun atas nama Anda</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-swiss-border paper-shadow">
+                    <span class="font-mono text-[10px] text-swiss-dim uppercase tracking-wider block mb-1">Garansi Pasca-Live</span>
+                    <div class="font-display text-2xl font-bold text-swiss-cobalt">30 – 60 Hari</div>
+                    <p class="text-xs text-swiss-muted mt-1">Dukungan teknis & revisi data</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: INTERACTIVE ROI SAVINGS CALCULATOR (SWISS EDITORIAL) -->
+    <section id="kalkulator" class="py-20 bg-white border-b border-swiss-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Info Column -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-swiss-linen border border-swiss-border font-mono text-[10px] text-swiss-amber uppercase tracking-wider">
+                        <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+                        <span>Simulasi Finansial Mandiri</span>
+                    </div>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-swiss-ink tracking-tight leading-snug">
+                        Berapa Puluh Juta yang Terbuang untuk Potongan Komisi?
+                    </h2>
+                    <p class="text-xs sm:text-sm text-swiss-muted leading-relaxed font-light">
+                        Jika bisnis Anda bergantung pada aplikasi ojol atau marketplace, potongan 15%–20% memotong laba bersih setiap bulan. Dengan memiliki website pemesanan sendiri, transaksi pelanggan mengalir langsung ke WhatsApp tanpa potongan.
+                    </p>
+                    <div class="p-4 rounded-xl bg-swiss-base border border-swiss-border font-mono text-xs text-swiss-muted space-y-1">
+                        <div>• Biaya pembuatan website sekali bayar mulai <strong>Rp 890.000</strong></div>
+                        <div>• Tanpa biaya langganan bulanan selamanya</div>
+                    </div>
+                </div>
+
+                <!-- Interactive Calculator Box -->
+                <div class="lg:col-span-7">
+                    <div class="bg-swiss-base p-6 sm:p-8 rounded-3xl border border-swiss-border paper-shadow">
+                        <!-- Slider Input -->
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center justify-between">
+                                <label for="omzetRange" class="font-mono text-xs uppercase tracking-wider text-swiss-muted">Estimasi Omzet Bulanan Bisnis Anda:</label>
+                                <span id="omzetDisplay" class="font-display text-xl sm:text-2xl font-bold text-swiss-ink">Rp 25.000.000</span>
+                            </div>
+                            <input type="range" id="omzetRange" min="5" max="100" step="5" value="25" class="swiss-slider w-full cursor-pointer">
+                            <div class="flex justify-between text-[10px] font-mono text-swiss-dim">
+                                <span>Rp 5 Jt / bln</span>
+                                <span>Rp 50 Jt / bln</span>
+                                <span>Rp 100 Jt / bln</span>
+                            </div>
+                        </div>
+
+                        <!-- Calculation Results Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                            <div class="p-4 rounded-2xl bg-white border border-swiss-border paper-shadow">
+                                <span class="font-mono text-[10px] text-swiss-dim uppercase block mb-1">Potongan Aplikasi / Bln (15%)</span>
+                                <div id="komisiBulan" class="font-display text-lg font-bold text-rose-600">Rp 3.750.000</div>
+                                <span class="text-[10px] text-swiss-dim">Terpotong per bulan</span>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-white border border-swiss-border paper-shadow">
+                                <span class="font-mono text-[10px] text-swiss-dim uppercase block mb-1">Potongan Aplikasi / Thn</span>
+                                <div id="komisiTahun" class="font-display text-lg font-bold text-rose-600">Rp 45.000.000</div>
+                                <span class="text-[10px] text-swiss-dim">12 bulan terakumulasi</span>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-emerald-50/80 border-2 border-emerald-500 paper-shadow">
+                                <span class="font-mono text-[10px] text-emerald-800 uppercase font-semibold block mb-1">Dana yang Anda Hemat / Thn</span>
+                                <div id="hematBersih" class="font-display text-lg font-bold text-emerald-700">Rp 43.550.000</div>
+                                <span class="text-[10px] text-emerald-600">Setelah modal web Rp 1.45 Jt</span>
+                            </div>
+                        </div>
+
+                        <!-- Action -->
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-swiss-border">
+                            <p class="text-xs text-swiss-muted font-light">
+                                Lindungi margin keuntungan bisnis Anda mulai hari ini.
+                            </p>
+                            <button onclick="contactViaWhatsApp('Konsultasi Solusi Hemat Komisi')" class="w-full sm:w-auto px-6 py-3 bg-swiss-ink hover:bg-swiss-cobalt text-white rounded-full font-mono text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+                                <span>Klaim Penghematan via WA</span>
+                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: SHOWCASE DEMO WEBSITE (PORTFOLIO GRID) -->
+    <section id="portfolio" class="py-24 bg-swiss-base">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-swiss-border font-mono text-[10px] text-swiss-cobalt uppercase tracking-wider mb-3 paper-shadow">
+                    <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+                    <span>Koleksi Demo Siap Uji</span>
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-swiss-ink tracking-tight">
+                    Coba Langsung Interaksi Nyata di Browser
+                </h2>
+                <p class="text-swiss-muted mt-2 text-xs sm:text-sm font-light">
+                    Semua demo di bawah ini adalah web fungsional dengan alur WhatsApp otomatis. Klik untuk mencoba langsung.
+                </p>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8 font-mono text-xs">
+                    <button onclick="filterPortfolio('all')" class="port-tab active px-4 py-2 rounded-full font-bold uppercase tracking-wider transition-all bg-swiss-ink text-white shadow-sm" data-cat="all">Semua Niche</button>
+                    <button onclick="filterPortfolio('fnb')" class="port-tab px-4 py-2 rounded-full font-medium uppercase tracking-wider transition-all bg-white text-swiss-muted hover:text-swiss-ink border border-swiss-border" data-cat="fnb">Kafe & Bistro</button>
+                    <button onclick="filterPortfolio('beauty')" class="port-tab px-4 py-2 rounded-full font-medium uppercase tracking-wider transition-all bg-white text-swiss-muted hover:text-swiss-ink border border-swiss-border" data-cat="beauty">Klinik & Salon</button>
+                    <button onclick="filterPortfolio('photography')" class="port-tab px-4 py-2 rounded-full font-medium uppercase tracking-wider transition-all bg-white text-swiss-muted hover:text-swiss-ink border border-swiss-border" data-cat="photography">Fotografi & Wedding</button>
+                    <button onclick="filterPortfolio('apparel')" class="port-tab px-4 py-2 rounded-full font-medium uppercase tracking-wider transition-all bg-white text-swiss-muted hover:text-swiss-ink border border-swiss-border" data-cat="apparel">Sablon & Custom</button>
+                    <button onclick="filterPortfolio('music')" class="port-tab px-4 py-2 rounded-full font-medium uppercase tracking-wider transition-all bg-white text-swiss-muted hover:text-swiss-ink border border-swiss-border" data-cat="music">Band & Musik</button>
+                    <button onclick="filterPortfolio('architecture')" class="port-tab px-4 py-2 rounded-full font-medium uppercase tracking-wider transition-all bg-white text-swiss-muted hover:text-swiss-ink border border-swiss-border" data-cat="architecture">Arsitektur & Kontraktor (Pro)</button>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid: 6 Demos -->
+            <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- DEMO 1: KAFE & RESTO -->
+                <div class="portfolio-card bg-white rounded-3xl overflow-hidden border border-swiss-border paper-shadow-hover flex flex-col group" data-category="fnb">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-swiss-linen">
+                        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" alt="Demo Kafe & Bistro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none"></div>
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-slate-900 border border-slate-200/80 text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                            Kafe & Kuliner
+                        </span>
+                        <span class="absolute bottom-3 right-3 bg-slate-950/90 backdrop-blur-md text-amber-300 border border-amber-500/40 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Paket Bisnis (Rp 1.45 Jt)
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-mono text-amber-700 font-semibold uppercase tracking-wider">📦 Paket Bisnis All-in-One</span>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-swiss-ink mb-1">Kopi Titik Temu & Artisan Bistro</h3>
+                            <p class="text-xs text-swiss-muted mb-4 font-light leading-relaxed">Website kafe modern dengan menu digital interaktif, keranjang pemesanan mandiri tanpa komisi ojol, dan form reservasi meja.</p>
+                            
+                            <div class="space-y-1.5 text-xs text-swiss-muted mb-6">
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Keranjang Belanja langsung ke WhatsApp</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Form Booking Meja & Ruang VIP</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Integrasi Google Maps & Jam Operasional</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-swiss-border flex items-center gap-3">
+                            <a href="https://055archive.github.io/demo-cafe/" target="_blank" class="flex-1 py-3 bg-swiss-ink hover:bg-swiss-cobalt text-white rounded-xl font-mono text-xs font-bold text-center flex items-center justify-center gap-2 transition-colors">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                <span>Buka Demo Kafe</span>
+                            </a>
+                            <button onclick="contactViaWhatsApp('Pesan Template Kafe & Resto (Paket Bisnis)')" class="p-3 bg-swiss-base hover:bg-swiss-linen text-swiss-muted hover:text-swiss-ink border border-swiss-border rounded-xl transition-colors" title="Pesan Website Tipe Ini">
+                                <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEMO 2: KLINIK & SALON -->
+                <div class="portfolio-card bg-white rounded-3xl overflow-hidden border border-swiss-border paper-shadow-hover flex flex-col group" data-category="beauty">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-swiss-linen">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Demo Klinik Estetika" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none"></div>
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-slate-900 border border-slate-200/80 text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                            Klinik & Salon
+                        </span>
+                        <span class="absolute bottom-3 right-3 bg-slate-950/90 backdrop-blur-md text-amber-300 border border-amber-500/40 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Paket Bisnis (Rp 1.45 Jt)
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-mono text-amber-700 font-semibold uppercase tracking-wider">📦 Paket Bisnis All-in-One</span>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-swiss-ink mb-1">AuraGlow Aesthetic Clinic</h3>
+                            <p class="text-xs text-swiss-muted mb-4 font-light leading-relaxed">Website elegan untuk klinik kecantikan & salon medis dengan katalog treatment, profil dokter berizin, dan booking jadwal pasien.</p>
+                            
+                            <div class="space-y-1.5 text-xs text-swiss-muted mb-6">
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Form Booking Jadwal Konsultasi Dokter</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Filter Treatment & Harga Coret Promo</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Profil Tim Dokter Spesialis & Sertifikasi</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-swiss-border flex items-center gap-3">
+                            <a href="https://055archive.github.io/demo-klinik/" target="_blank" class="flex-1 py-3 bg-swiss-ink hover:bg-swiss-cobalt text-white rounded-xl font-mono text-xs font-bold text-center flex items-center justify-center gap-2 transition-colors">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                <span>Buka Demo Klinik</span>
+                            </a>
+                            <button onclick="contactViaWhatsApp('Pesan Template Klinik Kecantikan (Paket Bisnis)')" class="p-3 bg-swiss-base hover:bg-swiss-linen text-swiss-muted hover:text-swiss-ink border border-swiss-border rounded-xl transition-colors" title="Pesan Website Tipe Ini">
+                                <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEMO 3: FOTOGRAFI & WEDDING (SERENA VISUALS - STARTER) -->
+                <div class="portfolio-card bg-white rounded-3xl overflow-hidden border border-swiss-border paper-shadow-hover flex flex-col group" data-category="photography">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-swiss-linen">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Demo SERENA Visuals Wedding Photography" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none"></div>
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-slate-900 border border-slate-200/80 text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                            Wedding & Fotografi
+                        </span>
+                        <span class="absolute bottom-3 right-3 bg-slate-950/90 backdrop-blur-md text-sky-300 border border-sky-500/40 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                            <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span> Paket Starter (Rp 890 Rb)
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-mono text-sky-700 font-semibold uppercase tracking-wider">📦 Paket Starter (Wedding & Visuals)</span>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-swiss-ink mb-1">SERENA Visuals & Editorial Wedding</h3>
+                            <p class="text-xs text-swiss-muted mb-4 font-light leading-relaxed">Website studio fotografi pernikahan & intimate pre-wedding bergaya editorial majalah dengan galeri kurasi lightbox, pricelist transparan, dan booking jadwal WA.</p>
+                            
+                            <div class="space-y-1.5 text-xs text-swiss-muted mb-6">
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Editorial Gallery Showcase & Lightbox Fullscreen</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Pricelist Paket Foto Jelas & Transparan</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Tombol Cek Tanggal & Konsultasi Langsung WA</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-swiss-border flex items-center gap-3">
+                            <a href="../website-demo-wedding-photography/index.html" target="_blank" class="flex-1 py-3 bg-swiss-ink hover:bg-swiss-cobalt text-white rounded-xl font-mono text-xs font-bold text-center flex items-center justify-center gap-2 transition-colors">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                <span>Buka Demo Wedding</span>
+                            </a>
+                            <button onclick="contactViaWhatsApp('Pesan Template Fotografi & Wedding (Paket Starter)')" class="p-3 bg-swiss-base hover:bg-swiss-linen text-swiss-muted hover:text-swiss-ink border border-swiss-border rounded-xl transition-colors" title="Pesan Website Tipe Ini">
+                                <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEMO 4: APPAREL & SABLON CUSTOM -->
+                <div class="portfolio-card bg-white rounded-3xl overflow-hidden border border-swiss-border paper-shadow-hover flex flex-col group" data-category="apparel">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-swiss-linen">
+                        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80" alt="Demo ROOM SABLON" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none"></div>
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-slate-900 border border-slate-200/80 text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                            Sablon & Racing
+                        </span>
+                        <span class="absolute bottom-3 right-3 bg-slate-950/90 backdrop-blur-md text-amber-300 border border-amber-500/40 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Paket Bisnis (Rp 1.45 Jt)
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-mono text-amber-700 font-semibold uppercase tracking-wider">📦 Paket Bisnis All-in-One</span>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-swiss-ink mb-1">ROOM SABLON Custom Studio</h3>
+                            <p class="text-xs text-swiss-muted mb-4 font-light leading-relaxed">Website workshop sablon kaos custom, racing & streetwear dengan katalog portofolio, kalkulator estimasi order WA, dan admin panel mandiri.</p>
+                            
+                            <div class="space-y-1.5 text-xs text-swiss-muted mb-6">
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Dashboard Admin Tambah Desain Sendiri</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Kalkulator Order WA (Satuan/Lusin)</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Lightbox Popup Detail Spesifikasi Kain</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-swiss-border flex items-center gap-3">
+                            <a href="https://055archive.github.io/room-sablon/" target="_blank" class="flex-1 py-3 bg-swiss-ink hover:bg-swiss-cobalt text-white rounded-xl font-mono text-xs font-bold text-center flex items-center justify-center gap-2 transition-colors">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                <span>Buka Demo Sablon</span>
+                            </a>
+                            <button onclick="contactViaWhatsApp('Pesan Template Sablon & Apparel (Paket Bisnis)')" class="p-3 bg-swiss-base hover:bg-swiss-linen text-swiss-muted hover:text-swiss-ink border border-swiss-border rounded-xl transition-colors" title="Pesan Website Tipe Ini">
+                                <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEMO 5: BAND & MUSISI (PARANOISE OFFICIAL EPK) -->
+                <div class="portfolio-card bg-white rounded-3xl overflow-hidden border border-swiss-border paper-shadow-hover flex flex-col group" data-category="music">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-swiss-linen">
+                        <img src="https://paranoise.my.id/assets/band-hero.png" onerror="this.src='assets/paranoise-hero.png'" alt="Paranoise Band Website & EPK" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none"></div>
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-slate-900 border border-slate-200/80 text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                            Band & Musisi
+                        </span>
+                        <span class="absolute bottom-3 right-3 bg-slate-950/90 backdrop-blur-md text-sky-300 border border-sky-500/40 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                            <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span> Paket Starter (Rp 890 Rb)
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-[10px] font-mono text-sky-700 font-semibold uppercase tracking-wider">📦 Paket Starter (Profil & EPK)</span>
+                                <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-300 flex items-center gap-1 font-semibold">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Live Client
+                                </span>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-swiss-ink mb-1">Paranoise Official Website & EPK</h3>
+                            <p class="text-xs text-swiss-muted mb-4 font-light leading-relaxed">Website resmi band Alternative Pop & EPK interaktif lengkap dengan audio player streaming MP3 lokal, integrasi Spotify, lirik lagu, galeri visual, dan booking manggung.</p>
+                            
+                            <div class="space-y-1.5 text-xs text-swiss-muted mb-6">
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Interactive Music Player Bar (MP3 & Spotify)</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Electronic Press Kit (EPK) & Showcase Lirik</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Custom Domain (paranoise.my.id) & SSL Enforced</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-swiss-border flex items-center gap-3">
+                            <a href="https://paranoise.my.id" target="_blank" class="flex-1 py-3 bg-swiss-ink hover:bg-swiss-cobalt text-white rounded-xl font-mono text-xs font-bold text-center flex items-center justify-center gap-2 transition-colors">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                <span>Buka Web Paranoise</span>
+                            </a>
+                            <button onclick="contactViaWhatsApp('Pesan Template Website Band & Musisi (Paket Starter)')" class="p-3 bg-swiss-base hover:bg-swiss-linen text-swiss-muted hover:text-swiss-ink border border-swiss-border rounded-xl transition-colors" title="Pesan Website Tipe Ini">
+                                <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEMO 6: KONTRAKTOR & ARSITEKTUR MEWAH (PRO CUSTOM) -->
+                <div class="portfolio-card bg-white rounded-3xl overflow-hidden border border-swiss-border paper-shadow-hover flex flex-col group" data-category="architecture">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-swiss-linen">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Demo Arsitektur & Kontraktor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none"></div>
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-slate-900 border border-slate-200/80 text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                            Arsitektur & Kontraktor
+                        </span>
+                        <span class="absolute bottom-3 right-3 bg-slate-950/90 backdrop-blur-md text-purple-300 border border-purple-500/40 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                            <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Paket Pro Custom (Rp 3.25 Jt)
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-mono text-purple-700 font-semibold uppercase tracking-wider">📦 Paket Pro Custom (Simulasi RAB)</span>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-swiss-ink mb-1">Vastukara Design & Build</h3>
+                            <p class="text-xs text-swiss-muted mb-4 font-light leading-relaxed">Website korporat arsitektur & kontraktor mewah dengan fitur kalkulator simulasi RAB real-time, interactive before-after slider, dan lightbox spesifikasi proyek.</p>
+                            
+                            <div class="space-y-1.5 text-xs text-swiss-muted mb-6">
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Kalkulator Estimasi Biaya Bangun (RAB) Otomatis</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Interactive Before / After Renovasi Slider</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Modal Lightbox Spesifikasi Teknis Proyek</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-swiss-border flex items-center gap-3">
+                            <a href="../website-demo-arsitektur-interior/index.html" target="_blank" class="flex-1 py-3 bg-swiss-ink hover:bg-swiss-cobalt text-white rounded-xl font-mono text-xs font-bold text-center flex items-center justify-center gap-2 transition-colors">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                <span>Buka Demo Pro Custom</span>
+                            </a>
+                            <button onclick="contactViaWhatsApp('Pesan Paket Pro Custom (Arsitektur / Kontraktor)')" class="p-3 bg-swiss-base hover:bg-swiss-linen text-swiss-muted hover:text-swiss-ink border border-swiss-border rounded-xl transition-colors" title="Pesan Website Tipe Ini">
+                                <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: PAKET HARGA ALL-IN-ONE (SWISS PRICING) -->
+    <section id="paket" class="py-24 bg-white border-y border-swiss-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-swiss-linen border border-swiss-border font-mono text-[10px] text-emerald-800 uppercase tracking-wider mb-3">
+                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    <span>Investasi Transparan & Sekali Bayar</span>
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-swiss-ink tracking-tight">
+                    Pilihan Paket Website All-in-One
+                </h2>
+                <p class="text-swiss-muted mt-2 text-xs sm:text-sm font-light">
+                    Tanpa biaya sewa bulanan yang membebani. Website 100% milik bisnis Anda.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Paket 1: Starter -->
+                <div class="bg-swiss-base p-8 rounded-3xl border border-swiss-border paper-shadow flex flex-col justify-between">
+                    <div>
+                        <span class="font-mono text-xs uppercase tracking-wider text-swiss-muted">UMKM Pemula & Profil</span>
+                        <h3 class="font-display text-2xl font-bold text-swiss-ink mt-1">Paket Starter</h3>
+                        <p class="text-xs text-swiss-muted mt-2 leading-relaxed">Landing page profil bisnis elegan satu halaman untuk membangun kehadiran online resmi.</p>
+                        
+                        <div class="my-6 pt-6 border-t border-swiss-border">
+                            <span class="text-[10px] font-mono text-swiss-dim uppercase tracking-wider block">Sekali Bayar / Thn Pertama</span>
+                            <div class="flex items-baseline gap-2 mt-1">
+                                <span class="font-display text-3xl font-bold text-swiss-ink">Rp 890.000</span>
+                                <span class="font-mono text-xs line-through text-swiss-dim">Rp 1.500.000</span>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-swiss-muted font-light">
+                            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Free Domain Resmi .com / .my.id (1 Tahun)</li>
+                            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Cloud Hosting SSD Cepat & SSL Gembok Aman</li>
+                            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Profil Usaha & Galeri Foto (Hingga 8 Foto)</li>
+                            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Tombol Chat WhatsApp Melayang Otomatis</li>
+                            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Pengerjaan Kilat 3 Hari Kerja</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="contactViaWhatsApp('Paket Starter (Rp 890.000)')" class="mt-8 w-full py-3.5 bg-white hover:bg-swiss-ink hover:text-white border border-swiss-border text-swiss-ink rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-all paper-shadow">
+                        Pilih Paket Starter
+                    </button>
+                </div>
+
+                <!-- Paket 2: Bisnis All-in-One (BEST SELLER) -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-emerald-600 shadow-xl relative flex flex-col justify-between">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-600 text-white rounded-full font-mono text-[10px] font-bold uppercase tracking-widest shadow-md">
+                        Paling Banyak Dipilih
+                    </div>
+
+                    <div>
+                        <span class="font-mono text-xs uppercase tracking-wider text-emerald-700 font-semibold">Kafe, Klinik, & Retail Toko</span>
+                        <h3 class="font-display text-2xl font-bold text-swiss-ink mt-1">Bisnis All-in-One</h3>
+                        <p class="text-xs text-swiss-muted mt-2 leading-relaxed">Lengkap dengan sistem pemesanan interaktif atau formulir booking jadwal langsung ke WhatsApp.</p>
+                        
+                        <div class="my-6 pt-6 border-t border-swiss-border">
+                            <span class="text-[10px] font-mono text-swiss-dim uppercase tracking-wider block">Sekali Bayar / Thn Pertama</span>
+                            <div class="flex items-baseline gap-2 mt-1">
+                                <span class="font-display text-3xl sm:text-4xl font-bold text-emerald-700">Rp 1.450.000</span>
+                                <span class="font-mono text-xs line-through text-swiss-dim">Rp 2.500.000</span>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-swiss-charcoal">
+                            <li class="flex items-center gap-2.5 font-medium"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> <strong>Free Domain .COM Resmi Internasional (1 Tahun)</strong></li>
+                            <li class="flex items-center gap-2.5 font-medium"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Cloud Hosting SSD Unlimited Bandwidth</li>
+                            <li class="flex items-center gap-2.5 font-medium"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> <strong>Sistem Order Mandiri / Form Booking WA</strong></li>
+                            <li class="flex items-center gap-2.5 font-medium"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Katalog Produk / Menu Interaktif (Up to 25 Item)</li>
+                            <li class="flex items-center gap-2.5 font-medium"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Integrasi Google Maps & Ulasan Bisnis</li>
+                            <li class="flex items-center gap-2.5 font-medium"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Garansi Maintenance & Revisi 30 Hari</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="contactViaWhatsApp('Paket Bisnis All-in-One (Rp 1.450.000)')" class="mt-8 w-full py-4 bg-swiss-ink hover:bg-swiss-cobalt text-white rounded-xl font-display font-bold text-xs tracking-wider uppercase transition-all shadow-md">
+                        Pilih Paket All-in-One
+                    </button>
+                </div>
+
+                <!-- Paket 3: Pro Custom -->
+                <div class="bg-swiss-base p-8 rounded-3xl border border-swiss-border paper-shadow flex flex-col justify-between">
+                    <div>
+                        <span class="font-mono text-xs uppercase tracking-wider text-purple-700">Korporat & Multi-Cabang</span>
+                        <h3 class="font-display text-2xl font-bold text-swiss-ink mt-1">Paket Pro Custom</h3>
+                        <p class="text-xs text-swiss-muted mt-2 leading-relaxed">Untuk kebutuhan khusus, multi-halaman, kalkulator interaktif, copywriting, dan optimasi SEO mendalam.</p>
+                        
+                        <div class="my-6 pt-6 border-t border-swiss-border">
+                            <span class="text-[10px] font-mono text-swiss-dim uppercase tracking-wider block">Sekali Bayar / Thn Pertama</span>
+                            <div class="flex items-baseline gap-2 mt-1">
+                                <span class="font-display text-3xl font-bold text-swiss-ink">Rp 3.250.000</span>
+                                <span class="font-mono text-xs line-through text-swiss-dim">Rp 5.000.000</span>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-swiss-muted font-light">
+                            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Semua Fitur Paket All-in-One</li>
+                            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Hingga 5 Halaman Terpisah (Home, About, dll)</li>
+                            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Copywriting / Teks Penjualan Dibuatkan Tim</li>
+                            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Setup Google Search Console & SEO Lokal</li>
+                            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Garansi Maintenance Prioritas 60 Hari</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="contactViaWhatsApp('Paket Pro Custom (Rp 3.250.000)')" class="mt-8 w-full py-3.5 bg-white hover:bg-swiss-ink hover:text-white border border-swiss-border text-swiss-ink rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-all paper-shadow">
+                        Pilih Paket Pro Custom
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: ALUR KERJA SAMA (SWISS WORKFLOW) -->
+    <section id="alur" class="py-20 bg-swiss-base border-b border-swiss-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="font-mono text-xs uppercase tracking-widest text-swiss-dim block mb-2">Alur Kolaborasi Ringkas</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-swiss-ink tracking-tight">4 Langkah dari Konsultasi hingga Live</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-swiss-border paper-shadow">
+                    <span class="font-mono text-3xl font-bold text-swiss-dim block mb-3">01</span>
+                    <h3 class="font-display font-bold text-base text-swiss-ink mb-2">Konsultasi Kebutuhan</h3>
+                    <p class="text-xs text-swiss-muted font-light leading-relaxed">Ceritakan bidang usaha Anda dan pilih konsep demo yang paling mendekati target pasar.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-swiss-border paper-shadow">
+                    <span class="font-mono text-3xl font-bold text-swiss-dim block mb-3">02</span>
+                    <h3 class="font-display font-bold text-base text-swiss-ink mb-2">Kirim Materi Bisnis</h3>
+                    <p class="text-xs text-swiss-muted font-light leading-relaxed">Cukup kirimkan logo, daftar menu/layanan, foto tempat, dan nomor WhatsApp toko Anda.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-swiss-border paper-shadow">
+                    <span class="font-mono text-3xl font-bold text-swiss-dim block mb-3">03</span>
+                    <h3 class="font-display font-bold text-base text-swiss-ink mb-2">Proses Pengerjaan</h3>
+                    <p class="text-xs text-swiss-muted font-light leading-relaxed">Website dikoding dan dirapikan tim kami dalam waktu 3–5 hari kerja dengan pengujian responsif.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-swiss-border paper-shadow">
+                    <span class="font-mono text-3xl font-bold text-emerald-600 block mb-3">04</span>
+                    <h3 class="font-display font-bold text-base text-swiss-ink mb-2">Live & Siap Order</h3>
+                    <p class="text-xs text-swiss-muted font-light leading-relaxed">Website online di domain .com pilihan Anda dan langsung siap dipajang di bio Instagram & Google Maps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: FAQ INTERAKTIF -->
+    <section id="faq" class="py-20 bg-white border-b border-swiss-border">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="font-mono text-xs uppercase tracking-widest text-swiss-dim block mb-2">Informasi Transparan</span>
+                <h2 class="font-display text-3xl font-bold text-swiss-ink tracking-tight">Pertanyaan yang Sering Diajukan</h2>
+            </div>
+
+            <div class="space-y-3.5">
+                <!-- FAQ 1 -->
+                <div class="bg-swiss-base rounded-2xl overflow-hidden border border-swiss-border paper-shadow">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-display font-semibold text-sm text-swiss-ink flex justify-between items-center hover:bg-white transition-colors">
+                        <span>Apakah saya harus paham hal teknis atau coding?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-swiss-dim transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs text-swiss-muted leading-relaxed border-t border-swiss-border bg-white font-light">
+                        <p class="pt-3">Sama sekali tidak! Semua urusan teknis—seperti pendaftaran domain, hosting cloud, coding antarmuka, hingga pengetesan tombol WhatsApp—kami selesaikan 100%. Anda tinggal terima jadi.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-swiss-base rounded-2xl overflow-hidden border border-swiss-border paper-shadow">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-display font-semibold text-sm text-swiss-ink flex justify-between items-center hover:bg-white transition-colors">
+                        <span>Apakah ada biaya bulanan tersembunyi?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-swiss-dim transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs text-swiss-muted leading-relaxed border-t border-swiss-border bg-white font-light">
+                        <p class="pt-3">Tidak ada biaya bulanan. Pembayaran awal sudah mencakup biaya pembuatan, nama domain, dan server hosting untuk 1 tahun penuh. Di tahun kedua, Anda hanya perlu perpanjangan sewa domain & hosting tahunan yang sangat terjangkau.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-swiss-base rounded-2xl overflow-hidden border border-swiss-border paper-shadow">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-display font-semibold text-sm text-swiss-ink flex justify-between items-center hover:bg-white transition-colors">
+                        <span>Bagaimana jika nanti saya ingin mengganti harga menu atau foto produk?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-swiss-dim transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs text-swiss-muted leading-relaxed border-t border-swiss-border bg-white font-light">
+                        <p class="pt-3">Kami menyertakan garansi bantuan update gratis selama 30 hari pertama pasca-peluncuran. Untuk seterusnya, kami menyediakan opsi maintenance berkala yang ramah kantong atau panduan sederhana untuk update mandiri.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-swiss-base rounded-2xl overflow-hidden border border-swiss-border paper-shadow">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-display font-semibold text-sm text-swiss-ink flex justify-between items-center hover:bg-white transition-colors">
+                        <span>Apakah bisa menggunakan nama domain sendiri (contoh: bisnisku.com)?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-swiss-dim transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs text-swiss-muted leading-relaxed border-t border-swiss-border bg-white font-light">
+                        <p class="pt-3">Tentu saja! Anda bebas menentukan nama domain pilihan Anda (seperti namatokomu.com, klinikestetika.id, dll). Kami yang akan mendaftarkan dan menghubungkannya langsung ke website Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-swiss-base text-swiss-muted py-14 text-xs font-mono border-t border-swiss-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-8 border-b border-swiss-border">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-swiss-ink text-white flex items-center justify-center font-display font-bold">R</div>
+                    <div>
+                        <span class="text-sm font-display font-bold text-swiss-ink block">Reality Studio</span>
+                        <span class="text-[10px] text-swiss-dim">Modern Swiss Graphic Webcraft</span>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-6 text-[11px] uppercase tracking-wider text-swiss-muted">
+                    <a href="#portfolio" class="hover:text-swiss-ink transition-colors">Demo</a>
+                    <a href="#kalkulator" class="hover:text-swiss-ink transition-colors">Kalkulator</a>
+                    <a href="#paket" class="hover:text-swiss-ink transition-colors">Pricelist</a>
+                    <a href="#faq" class="hover:text-swiss-ink transition-colors">FAQ</a>
+                </div>
+
+                <div class="flex items-center gap-4 text-swiss-dim">
+                    <span>WhatsApp: +62 851-3877-4214</span>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-swiss-dim">
+                <p>© 2026 Reality Studio. Seluruh hak cipta dilindungi.</p>
+                <p>Designed with Modern Swiss Typographic System.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <div class="fixed bottom-6 right-6 z-40 flex items-center gap-3">
+        <div class="hidden sm:flex items-center px-3.5 py-2 rounded-full bg-white border border-swiss-border shadow-xl text-xs font-mono text-swiss-ink paper-shadow">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block mr-2 animate-pulse"></span>
+            Online · Konsultasi Studio
+        </div>
+
+        <button onclick="contactViaWhatsApp('Floating Button')" 
+           aria-label="Konsultasi via WhatsApp"
+           class="w-13 h-13 p-3.5 rounded-full bg-swiss-ink hover:bg-emerald-600 text-white shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-105">
+            <i data-lucide="message-circle" class="w-6 h-6 text-emerald-400"></i>
+        </button>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        lucide.createIcons();
+
+        // Konfigurasi WhatsApp Agency
+        const MY_WHATSAPP_NUMBER = "6285138774214";
+
+        // 1. Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // 2. Filter Portfolio Tabs
+        function filterPortfolio(cat) {
+            const tabs = document.querySelectorAll('.port-tab');
+            const cards = document.querySelectorAll('.portfolio-card');
+
+            tabs.forEach(t => {
+                if (t.getAttribute('data-cat') === cat) {
+                    t.classList.add('bg-swiss-ink', 'text-white', 'shadow-sm');
+                    t.classList.remove('bg-white', 'text-swiss-muted');
+                } else {
+                    t.classList.remove('bg-swiss-ink', 'text-white', 'shadow-sm');
+                    t.classList.add('bg-white', 'text-swiss-muted');
+                }
+            });
+
+            cards.forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-category') === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 3. Contact via WhatsApp
+        function contactViaWhatsApp(topic = "Pembuatan Website") {
+            const text = 
+`Halo Reality Studio, saya tertarik untuk membuat website untuk bisnis saya.
+
+📌 *Topik / Pilihan Paket:* ${topic}
+Nama Saya:
+Jenis Usaha:
+
+Boleh info detail langkah pengerjaannya? Terima kasih!`;
+
+            window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // 4. Toggle FAQ Accordion
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            const isHidden = content.classList.contains('hidden');
+
+            document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('#faq button i').forEach(ic => ic.style.transform = 'rotate(0deg)');
+
+            if (isHidden) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // 5. Interactive ROI Savings Calculator
+        const omzetRange = document.getElementById('omzetRange');
+        const omzetDisplay = document.getElementById('omzetDisplay');
+        const komisiBulan = document.getElementById('komisiBulan');
+        const komisiTahun = document.getElementById('komisiTahun');
+        const hematBersih = document.getElementById('hematBersih');
+
+        function formatRupiah(angka) {
+            return 'Rp ' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        function calculateROI() {
+            const valJuta = parseInt(omzetRange.value, 10);
+            const totalOmzet = valJuta * 1000000;
+            
+            // Asumsi potongan komisi rata-rata 15%
+            const komisiBln = totalOmzet * 0.15;
+            const komisiThn = komisiBln * 12;
+            const biayaWeb = 1450000; // Paket Bisnis All-in-One
+            const penghematan = komisiThn - biayaWeb;
+
+            omzetDisplay.textContent = formatRupiah(totalOmzet);
+            komisiBulan.textContent = formatRupiah(komisiBln);
+            komisiTahun.textContent = formatRupiah(komisiThn);
+            hematBersih.textContent = formatRupiah(penghematan);
+        }
+
+        if (omzetRange) {
+            omzetRange.addEventListener('input', calculateROI);
+            calculateROI(); // Inisialisasi hitungan awal
+        }
+    </script>
+</body>
+</html>
