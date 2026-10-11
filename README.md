@@ -24,14 +24,15 @@ Klik dua kali file `index.html` tersebut untuk membukanya langsung di browser (G
 
 ## 🕹️ Fitur Lengkap yang Dipertahankan 100%:
 1. **Interactive Bento ROI Calculator:** Slider omzet bulanan (Rp 5 Jt – Rp 100 Jt) dengan perhitungan otomatis potongan komisi marketplace vs penghematan bersih puluhan juta rupiah.
-2. **Filter Niche 7 Kategori:** Semua Niche, Kafe & Bistro, Klinik & Salon, Fotografi & Wedding, Sablon & Custom, Band & Musik, serta Arsitektur & Kontraktor (Pro).
-3. **Katalog 6 Kartu Demo Interaktif (Anti-Bertumpuk):**
+2. **Filter Niche 8 Kategori:** Semua Niche, Kafe & Bistro, Klinik & Salon, Fotografi & Wedding, Sablon & Custom, Band & Musik, Arsitektur & Kontraktor (Pro), serta Web App & Portal.
+3. **Katalog 7 Kartu Demo Interaktif (Anti-Bertumpuk):**
    * **Demo 1 (Kopi Titik Temu):** `Paket Bisnis (Rp 1.45 Jt)` ➡️ `https://055archive.github.io/demo-cafe/`
    * **Demo 2 (AuraGlow Aesthetic):** `Paket Bisnis (Rp 1.45 Jt)` ➡️ `https://055archive.github.io/demo-klinik/`
    * **Demo 3 (SERENA Visuals Wedding):** `Paket Starter (Rp 890 Rb)` ➡️ `../website-demo-wedding-photography/index.html`
    * **Demo 4 (ROOM SABLON Studio):** `Paket Bisnis (Rp 1.45 Jt)` ➡️ `https://055archive.github.io/room-sablon/`
    * **Demo 5 (Paranoise Official EPK):** `Paket Starter (Rp 890 Rb)` ➡️ Live Client `https://paranoise.my.id`
    * **Demo 6 (Vastukara Design & Build):** `Paket Pro Custom (Rp 3.25 Jt)` ➡️ `../website-demo-arsitektur-interior/index.html`
+   * **Demo 7 (StudyManage Portal Kuliah):** `Paket Pro Custom (PWA & Cloud)` ➡️ `../portal-kuliah/index.html`
 4. **Pricelist Transparan All-in-One:** Paket Starter (Rp 890.000), Paket Bisnis (Rp 1.450.000), dan Paket Pro Custom (Rp 3.250.000).
 5. **Alur Kerja Sama 4 Langkah:** Konsultasi ➡️ Kirim Materi ➡️ Proses Webcrafting ➡️ Live & Siap Order.
 6. **Accordion FAQ Interaktif:** Pertanyaan umum calon klien.

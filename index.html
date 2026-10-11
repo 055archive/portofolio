@@ -203,14 +203,14 @@
 
                 <!-- Subtitle -->
                 <p class="text-swiss-muted text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-light">
-                    Solusi website komprehensif untuk kafe, klinik estetika, studio fotografi, apparel sablon, hingga kontraktor arsitektur. Sudah termasuk <strong>Domain .com resmi, Cloud Hosting kilat</strong>, dan sistem order otomatis ke WhatsApp.
+                    Solusi website komprehensif untuk kafe, klinik estetika, studio fotografi, apparel sablon, web application portal kampus, hingga kontraktor arsitektur. Sudah termasuk <strong>Domain .com resmi, Cloud Hosting kilat</strong>, dan sistem order otomatis ke WhatsApp.
                 </p>
 
                 <!-- Action Buttons -->
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-4">
                     <a href="#portfolio" class="w-full sm:w-auto px-8 py-3.5 bg-swiss-ink hover:bg-swiss-cobalt text-white font-display font-bold text-xs uppercase tracking-wider rounded-full transition-all flex items-center justify-center gap-2 shadow-sm">
                         <i data-lucide="layout-grid" class="w-4 h-4"></i>
-                        <span>Jelajahi 6 Demo Langsung</span>
+                        <span>Jelajahi 7 Demo Langsung</span>
                     </a>
                     <button onclick="contactViaWhatsApp('Konsultasi Kebutuhan Website')" class="w-full sm:w-auto px-8 py-3.5 bg-white hover:bg-swiss-linen border border-swiss-border text-swiss-ink font-mono text-xs font-semibold tracking-wider uppercase rounded-full transition-all flex items-center justify-center gap-2 paper-shadow">
                         <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
@@ -350,10 +350,11 @@
                     <button onclick="filterPortfolio('apparel')" class="port-tab px-4 py-2 rounded-full font-medium uppercase tracking-wider transition-all bg-white text-swiss-muted hover:text-swiss-ink border border-swiss-border" data-cat="apparel">Sablon & Custom</button>
                     <button onclick="filterPortfolio('music')" class="port-tab px-4 py-2 rounded-full font-medium uppercase tracking-wider transition-all bg-white text-swiss-muted hover:text-swiss-ink border border-swiss-border" data-cat="music">Band & Musik</button>
                     <button onclick="filterPortfolio('architecture')" class="port-tab px-4 py-2 rounded-full font-medium uppercase tracking-wider transition-all bg-white text-swiss-muted hover:text-swiss-ink border border-swiss-border" data-cat="architecture">Arsitektur & Kontraktor (Pro)</button>
+                    <button onclick="filterPortfolio('portal')" class="port-tab px-4 py-2 rounded-full font-medium uppercase tracking-wider transition-all bg-white text-swiss-muted hover:text-swiss-ink border border-swiss-border" data-cat="portal">Web App & Portal</button>
                 </div>
             </div>
 
-            <!-- Portfolio Grid: 6 Demos -->
+            <!-- Portfolio Grid: 7 Demos -->
             <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- DEMO 1: KAFE & RESTO -->
@@ -593,6 +594,45 @@
                     </div>
                 </div>
 
+                <!-- DEMO 7: WEB APP & PORTAL KULIAH (STUDYMANAGE) -->
+                <div class="portfolio-card bg-white rounded-3xl overflow-hidden border border-swiss-border paper-shadow-hover flex flex-col group" data-category="portal">
+                    <div class="relative aspect-[16/10] overflow-hidden bg-swiss-linen">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="StudyManage Portal Kuliah PWA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none"></div>
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-slate-900 border border-slate-200/80 text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span> Web App & Portal
+                        </span>
+                        <span class="absolute bottom-3 right-3 bg-slate-950/90 backdrop-blur-md text-indigo-300 border border-indigo-500/40 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span> Paket Pro Custom (PWA & Cloud)
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-mono text-indigo-700 font-semibold uppercase tracking-wider">📦 Web App PWA & Cloud Firestore</span>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-swiss-ink mb-1">StudyManage — Portal Akademik & Kelas</h3>
+                            <p class="text-xs text-swiss-muted mb-4 font-light leading-relaxed">Aplikasi web portal perkuliahan multi-role (Mahasiswa, Pengurus Kelas & Master Admin) dengan sinkronisasi Cloud Firestore real-time, manajemen tugas & materi, notifikasi deadline, dan instalasi PWA di Android & iPhone.</p>
+                            
+                            <div class="space-y-1.5 text-xs text-swiss-muted mb-6">
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Cloud Sync Real-Time (Firebase Firestore & Auth)</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Progressive Web App (Dapat diinstal di Android & iOS)</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Multi-Role: Mahasiswa, Pengurus Kelas & Master Admin</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-swiss-border flex items-center gap-3">
+                            <a href="../portal-kuliah/index.html" target="_blank" class="flex-1 py-3 bg-swiss-ink hover:bg-swiss-cobalt text-white rounded-xl font-mono text-xs font-bold text-center flex items-center justify-center gap-2 transition-colors">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                <span>Buka Demo Portal Kuliah</span>
+                            </a>
+                            <button onclick="contactViaWhatsApp('Pesan Sistem Web App / Portal Kuliah (Paket Pro Custom)')" class="p-3 bg-swiss-base hover:bg-swiss-linen text-swiss-muted hover:text-swiss-ink border border-swiss-border rounded-xl transition-colors" title="Pesan Website Tipe Ini">
+                                <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -623,7 +663,7 @@
                         <p class="text-xs text-swiss-muted mt-2 leading-relaxed">Landing page profil bisnis elegan satu halaman untuk membangun kehadiran online resmi.</p>
                         
                         <div class="my-6 pt-6 border-t border-swiss-border">
-                            <span class="text-[10px] font-mono text-swiss-dim uppercase tracking-wider block">Sekali Bayar / Thn Pertama</span>
+                            <span class="text-[10px] font-mono text-swiss-dim uppercase tracking-wider block">Start From</span>
                             <div class="flex items-baseline gap-2 mt-1">
                                 <span class="font-display text-3xl font-bold text-swiss-ink">Rp 890.000</span>
                                 <span class="font-mono text-xs line-through text-swiss-dim">Rp 1.500.000</span>
@@ -656,7 +696,7 @@
                         <p class="text-xs text-swiss-muted mt-2 leading-relaxed">Lengkap dengan sistem pemesanan interaktif atau formulir booking jadwal langsung ke WhatsApp.</p>
                         
                         <div class="my-6 pt-6 border-t border-swiss-border">
-                            <span class="text-[10px] font-mono text-swiss-dim uppercase tracking-wider block">Sekali Bayar / Thn Pertama</span>
+                            <span class="text-[10px] font-mono text-swiss-dim uppercase tracking-wider block">Star From</span>
                             <div class="flex items-baseline gap-2 mt-1">
                                 <span class="font-display text-3xl sm:text-4xl font-bold text-emerald-700">Rp 1.450.000</span>
                                 <span class="font-mono text-xs line-through text-swiss-dim">Rp 2.500.000</span>
@@ -686,7 +726,7 @@
                         <p class="text-xs text-swiss-muted mt-2 leading-relaxed">Untuk kebutuhan khusus, multi-halaman, kalkulator interaktif, copywriting, dan optimasi SEO mendalam.</p>
                         
                         <div class="my-6 pt-6 border-t border-swiss-border">
-                            <span class="text-[10px] font-mono text-swiss-dim uppercase tracking-wider block">Sekali Bayar / Thn Pertama</span>
+                            <span class="text-[10px] font-mono text-swiss-dim uppercase tracking-wider block">Star From</span>
                             <div class="flex items-baseline gap-2 mt-1">
                                 <span class="font-display text-3xl font-bold text-swiss-ink">Rp 3.250.000</span>
                                 <span class="font-mono text-xs line-through text-swiss-dim">Rp 5.000.000</span>
